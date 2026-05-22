@@ -1,36 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroBg from '../assets/images/Randy_Beth_Classy_4.jpeg';
 ---
 
 <BaseLayout title="Randy Beth">
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">New Single</p>
-      <h1 class="hero-title">Randy Beth</h1>
-      <p class="hero-single">"Classy" — Out Now</p>
-      <a href="/listen" class="hero-btn">Listen Now</a>
+  <section class="hero-wrapper">
+    <div class="hero">
+      <Image src={heroBg} alt="Randy Beth" class="hero-img" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">New Single</p>
+        <h1 class="hero-title">Randy Beth</h1>
+        <p class="hero-single">"Classy" — Out Now</p>
+        <a href="/listen" class="hero-btn">Listen Now</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .hero {
-    position: relative;
-    height: 100vh;
+  .hero-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    padding: 100px 80px 80px;
+    min-height: 100vh;
   }
 
-  .hero-bg {
+  .hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 70% 70% at 50% 60%, rgba(31,51,36,0.7) 0%, transparent 70%),
-      linear-gradient(160deg, #0a1a0d 0%, #162218 40%, #1a2e1e 70%, #0d1a10 100%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
+
+  .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(13, 26, 16, 0.45) 0%,
+    rgba(13, 26, 16, 0.65) 100%
+  );
+}
 
   .hero-content {
     position: relative;
@@ -39,7 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     animation: fadeUp 1.4s ease forwards;
   }
 
@@ -51,7 +76,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero-eyebrow {
     font-family: var(--font-body);
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 900;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--gold);
@@ -59,8 +84,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(64px, 12vw, 140px);
-    font-weight: 300;
+    font-size: clamp(40px, 7vw, 90px);
+    font-weight: 500;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--cream);
@@ -69,29 +95,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-single {
     font-family: var(--font-display);
-    font-size: clamp(16px, 2vw, 22px);
-    font-weight: 300;
+    font-size: clamp(14px, 1.8vw, 20px);
+    font-weight: 700;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
     font-style: italic;
-    color: var(--text-dim);
+    color: var(--cream);
     letter-spacing: 0.1em;
   }
 
   .hero-btn {
-    margin-top: 12px;
-    padding: 14px 40px;
+    margin-top: 8px;
+    padding: 12px 36px;
+    background: var(--gold);
     border: 1px solid var(--gold);
-    color: var(--gold);
+    color: var(--green-deep);
+    text-decoration: none;
     font-family: var(--font-body);
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 900;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    text-decoration: none;
     transition: background 0.3s, color 0.3s;
   }
 
   .hero-btn:hover {
-    background: var(--gold);
-    color: var(--green-deep);
+    background: var(--gold-light);
   }
+
+  @media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 80px 24px 40px;
+  }
+
+  .hero {
+    aspect-ratio: 4 / 5;
+  }
+}
 </style>
