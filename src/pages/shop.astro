@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Shop — Randy Beth">
+  <section class="shop">
+    <div class="shop-content">
+      <p class="shop-eyebrow">Merch</p>
+      <h1 class="shop-title">Shop</h1>
+      <p class="shop-desc">Official Randy Beth merchandise, available now.<p>
+      <a href="https://www.etsy.com/shop/MagicWindowCo"
+        class="shop-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit the Store
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shop {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+  }
+
+  .shop-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .shop-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .shop-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 10vw, 100px);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .shop-desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    max-width: 360px;
+    line-height: 1.8;
+  }
+
+  .shop-btn {
+    margin-top: 12px;
+    padding: 16px 48px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .shop-btn:hover {
+    background: var(--gold);
+    color: var(--green-deep);
+  }
+</style>

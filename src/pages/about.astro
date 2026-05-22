@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/images/Randy_Beth_4.jpeg';
+---
+
+<BaseLayout title="About — Randy Beth">
+  <section class="about">
+    <div class="about-grid">
+      <div class="about-image">
+        <Image src={portrait} alt="Randy Beth" />
+      </div>
+      <div class="about-text">
+        <p class="about-eyebrow">About</p>
+        <h1 class="about-name">Randy Beth</h1>
+        <div class="about-bio">
+          <p>Bio coming soon.</p>
+        </div>
+        <div class="about-links">
+          <a href="/listen" class="about-btn">Listen Now</a>
+          <a href="/press" class="about-btn secondary">Press</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .about-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .about-name {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .about-bio p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-dim);
+    max-width: 480px;
+  }
+
+  .about-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .about-btn {
+    padding: 14px 32px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .about-btn:hover {
+    background: var(--gold);
+    color: var(--green-deep);
+  }
+
+  .about-btn.secondary {
+    border-color: var(--green-sage);
+    color: var(--cream);
+  }
+
+  .about-btn.secondary:hover {
+    background: var(--green-sage);
+    color: var(--cream);
+  }
+</style>

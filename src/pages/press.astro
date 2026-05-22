@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = [
+      {
+    publication: 'Artenzza',
+    headline: 'Keep Driving Forward',
+    href: 'https://artenzza.com/interview/randy-beth-interview/',
+  },
+  {
+    publication: 'Rainbows in Revolt',
+    headline: 'Randy Beth — Artist Spotlight',
+    href: 'https://www.rainbowsinrevolt.com/randy-beth-artist-spotlight',
+  },
+  {
+    publication: 'Earmilk',
+    headline: 'Quiet Strength Flows Through Randy Beth\'s "Overstay"',
+    href: 'https://earmilk.com/2025/07/28/quiet-strength-flows-through-randy-beths-overstay/',
+  },
+  {
+    publication: 'Rising Artists Blog',
+    headline: '"Run" by Randy Beth',
+    href: 'https://risingartistsblog.com/2022/06/23/run-by-randy-beth/',
+  },
+];
+---
+
+<BaseLayout title="Press — Randy Beth">
+  <section class="press">
+    <div class="press-content">
+      <p class="press-eyebrow">Press</p>
+      <h1 class="press-title">As Seen In</h1>
+      <div class="press-list">
+        {articles.map(article => (
+          <a href={article.href} class="press-item" target="_blank" rel="noopener noreferrer">
+            <div class="press-item-inner">
+              <p class="press-publication">{article.publication}</p>
+              <p class="press-headline">{article.headline}</p>
+              <span class="press-read">Read Article →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .press {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 48px 80px;
+  }
+
+  .press-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    gap: 24px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .press-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .press-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+  }
+
+  .press-item {
+    display: block;
+    text-decoration: none;
+    border-top: 1px solid var(--green-mid);
+    transition: background 0.3s;
+    color: inherit;
+  }
+
+  .press-item:last-child {
+    border-bottom: 1px solid var(--green-mid);
+  }
+
+  .press-item:hover {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .press-item:hover .press-read {
+    color: var(--gold);
+  }
+
+  .press-item-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 16px;
+  }
+
+  .press-publication {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
