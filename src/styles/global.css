@@ -1,0 +1,25 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green-deep: #0d1a10;
+  --green-dark: #162218;
+  --green-mid: #1f3324;
+  --green-sage: #4a7058;
+  --gold: #b8965a;
+  --gold-light: #d4b07a;
+  --cream: #e8e0d0;
+  --text-dim: #8a9e8e;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+body {
+  background: var(--green-deep);
+  color: var(--cream);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}

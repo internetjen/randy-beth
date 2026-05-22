@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const platforms = [
+  { name: 'Spotify', href: 'https://open.spotify.com/track/2P00B1du5hobvLugbGMgoC?si=2b9d2eae411c41b3', icon: '♫' },
+  { name: 'Apple Music', href: 'https://music.apple.com/us/song/classy/1889333290', icon: '♫' },
+  { name: 'YouTube Music', href: 'https://music.youtube.com/watch?v=JO58F6YB_Uc&si=s_Np03GTztlh_3Tb', icon: '♫' },
+  { name: 'Amazon Music', href: 'https://www.amazon.com/classy-Randy-Beth/dp/B0GVC1J5L9', icon: '♫' },
+];
+---
+
+<BaseLayout title="Listen — Randy Beth">
+  <section class="links-page">
+    <div class="links-content">
+      <p class="links-eyebrow">Out Now</p>
+      <h1 class="links-title">"Classy"</h1>
+      <p class="links-artist">Randy Beth</p>
+      <div class="links-list">
+        {platforms.map(platform => (
+          <a href={platform.href} class="links-btn" target="_blank" rel="noopener noreferrer">
+            {platform.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .links-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 60px;
+  }
+
+  .links-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 480px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .links-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .links-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 10vw, 80px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .links-artist {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .links-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    border: 1px solid var(--green-sage);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+  }
+
+  .links-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(184, 150, 90, 0.05);
+  }
+</style>
